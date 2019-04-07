@@ -766,6 +766,9 @@ def DOF9sensor_read():
     global min_pitch
     global max_roll
     global min_roll
+    global collision_warning
+    global pitch
+    global roll
     
     #definitions for orientation of sensor
     accel_x, accel_y, accel_z = DOF9sensor.acceleration# 9DOFX=z axis 9DOFY= x axis 9DOFZ= y axis
@@ -831,46 +834,17 @@ def DOF9sensor_read():
     print ("MAX ROLL RIGHT:", min_roll)
     print ("MAX ROLL LEFT:", max_roll)
     
+    ## maybe move this to nav_rules() because collision_warning gets zeroed at head of nav rules its nested in nav rules
+    if roll > 10 or roll <-10:
+        print ("roll TRIGGER!")
+        collision_warning= True
+    if pitch > 10 or pitch < -10:
+        print ("PITCH TRIGGER!")
+        collision_warning=True
+    
+    
 
-##    if max_accel_forward< accel_forward:
-##        max_accel_forward=accel_forward
-##        
-##    if min_accel_forward> accel_forward:
-##        min_accel_forward= accel_forward
-##
-##    if max_gyro_roll< gyro_roll:
-##        max_gyro_roll=gyro_roll
-##        
-##    if min_gyro_roll> gyro_roll:
-##        min_gyro_roll=gyro_roll
-##
-##    if max_gyro_pitch< gyro_pitch:
-##        max_gyro_pitch= gyro_pitch
-##        
-##    if min_gyro_pitch> gyro_pitch:
-##        min_gyro_pitch= gyro_pitch
-##
-##    if max_gyro_yaw< gyro_yaw:
-##        max_gyro_yaw= gyro_yaw
-##        
-##    if min_gyro_yaw> gyro_yaw:
-##        min_gyro_yaw=gyro_yaw
-##        
-##    print ("max/min accel forward")
-##    print (max_accel_forward,min_accel_forward)
-##    print ("max/min accel down")
-##    print (max_accel_down, min_accel_down)
-##    print ("max/min accel sideways")
-##    print (max_accel_sideways, min_accel_sideways)
-##    print ("max/min gyro roll")
-##    print (max_gyro_roll, min_gyro_roll)
-##    print("max/min gyro pitch")
-##    print (max_gyro_pitch, min_gyro_pitch)
-##    print ("max/min gyro yaw")
-##    print (max_gyro_pitch, min_gyro_pitch)
-##    print ("max/min Gyro yaw")
-##    print (max_gyro_yaw, min_gyro_yaw)
-##    
+
         
     
 
