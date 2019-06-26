@@ -55,6 +55,7 @@ import busio
 
 i2c =busio.I2C(board.SCL, board.SDA)
 
+
 ## LSM9DS1 Accelerometer gyro, magnetometer, temp
 import adafruit_lsm9ds1
 DOF9sensor = adafruit_lsm9ds1.LSM9DS1_I2C(i2c)
@@ -85,7 +86,12 @@ import time
 from time import sleep
 
 
-import VL53L0X
+import VL53L0X #Python version
+
+
+import adafruit_vl53l0x #Circuitpython version
+sensor = adafruit_vl53l0x.VL53L0X(i2c) #circuitpython version
+
 import atexit
 import math
 import RPi.GPIO as gpio
