@@ -835,10 +835,10 @@ def DOF9sensor_read():
     print ("MAX ROLL LEFT:", max_roll)
     
     ## maybe move this to nav_rules() because collision_warning gets zeroed at head of nav rules its nested in nav rules
-    if roll > 10 or roll <-10:
+    if roll > 14 or roll <-14:
         print ("roll TRIGGER!")
         collision_warning= True
-    if pitch > 10 or pitch < -10:
+    if pitch > 14 or pitch < -14:
         print ("PITCH TRIGGER!")
         collision_warning=True
     
