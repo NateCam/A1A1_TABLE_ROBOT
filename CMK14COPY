@@ -86,7 +86,13 @@ import time
 from time import sleep
 
 
-import VL53L0X #Python version
+import VL53L0X 
+
+#Python version
+import adafruit_vl53l0x
+CPsensor= adafruit_vl53l0x.VL53L0X(i2c)
+
+
 
 
 import adafruit_vl53l0x #Circuitpython version
@@ -156,7 +162,7 @@ ser = serial.Serial(port='/dev/ttyS0',baudrate = 9600,parity = serial.PARITY_NON
 
 
 # Create a VL53L0X object for device on TCA9548A bus 1
-tofRight1 = VL53L0X.VL53L0X(TCA9548A_Num=1, TCA9548A_Addr=0x70)#RIGHT
+tofRight1 = adafruit_vl53l0x.VL53L0X(i2c)(TCA9548A_Num=1, TCA9548A_Addr=0x70)#RIGHT
 # Create a VL53L0X object for device on TCA9548A bus 2
 tofLeft2 = VL53L0X.VL53L0X(TCA9548A_Num=2, TCA9548A_Addr=0x70)# LEFT
 # Create a VL53L0X object for device on TCA9548A bus 3
