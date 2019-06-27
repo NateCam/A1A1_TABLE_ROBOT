@@ -1,6 +1,7 @@
 ##!/usr/bin/python3
 #A1-A1 Table Droid
 #cd robotFiles/python
+#THIS IS A TEST OF PULL 
 #sudo python CMK8.py
 #sudo iwconfig wlan0 power off #turns off power management
 #iwconfig reports status
