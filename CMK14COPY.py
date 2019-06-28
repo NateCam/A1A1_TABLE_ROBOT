@@ -1220,7 +1220,8 @@ print (MotorThreeAltSpeeds)
 while True:
     camera.annotate_text= " ACTIVATE LASERS!"
     read_lasers()
-    #sensor_Test()
+    while True:
+        sensor_Test()
     
 
     
